@@ -1,0 +1,26 @@
+version: '3.7'
+
+services:
+  postgres:
+    image: postgres:latest
+    container_name: restro-db
+    environment:
+      POSTGRES_USER: amod
+      POSTGRES_PASSWORD: amod
+      POSTGRES_DB: restro
+    ports:
+      - "5433:5432"
+    volumes:
+    - /Users/amodkumar/Desktop/postgres-data:/var/lib/postgresql/data
+  app:
+    image: restro-app-image
+    build: .
+    container_name: restro-app
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/restro
+      SPRING_DATASOURCE_USERNAME: amod
+      SPRING_DATASOURCE_PASSWORD: amod
+    depends_on:
+      - postgres

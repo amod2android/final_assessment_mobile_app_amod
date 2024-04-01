@@ -28,6 +28,15 @@ public class Menu {
     public Menu() {
     }
 
+    public Menu(String name, Long price, String ingredients, String tag, String prepmints, String imageurl) {
+        this.name = name;
+        this.price = price;
+        this.ingredients = ingredients;
+        this.tag = tag;
+        this.prepmints = prepmints;
+        this.imageurl = imageurl;
+    }
+
     public Menu(Long id, String name, Long price, String ingredients, String tag, String prepmints, String imageurl, LocalDateTime createdAt, LocalDateTime updateAt) {
         this.id = id;
         this.name = name;
